@@ -36,11 +36,7 @@ public class ListUtils {
     }
 
     public static <T> void removeAll(List<T> list, List<T> elements) {
-        ListIterator<T> iterator = list.listIterator();
-        while (iterator.hasNext()) {
-            if (elements.contains(iterator.next())) {
-                iterator.remove();
-            }
-        }
+        Predicate<T> filter = s -> elements.contains(s);
+        removeIf(list, filter);
     }
 }

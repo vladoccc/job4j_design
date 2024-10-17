@@ -58,4 +58,13 @@ class ListUtilsTest {
         ListUtils.removeAll(input, elements);
         assertThat(input).isEmpty();
     }
+
+    @Test
+    void whenAddAndRemoveAll() {
+        input.add(2, 4);
+        input.add(3, 8);
+        List<Integer> elements = new ArrayList<>(Arrays.asList(1, 3));
+        ListUtils.removeAll(input, elements);
+        assertThat(input).containsSequence(4, 8);
+    }
 }
